@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%sveltekit.assets%/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="SJC Notice App - Stay updated with the latest notices from SJC." />
+    <meta name="author" content="Sudipto Sen" />
+    <meta name="keywords" content="Notices, SJC, College, Updates" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>SJC Notice App</title>
+    %sveltekit.head%
+    <style>
+        /* Add the background image styles */
+        body {
+            background-image: url('/background.jpg'); /* Updated path to the image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+        }
+    </style>
+</head>
+<body data-sveltekit-preload-data="hover">
+    <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Overlay div -->
+    <div class="relative z-10 max-w-3xl mx-auto p-6 bg-gray-800 bg-opacity-80 rounded-lg shadow-md mt-10">
+        <div style="display: contents">%sveltekit.body%</div>
+    </div>
+    
+    <!-- Footer Section -->
+    <footer class="text-center p-4 bg-gray-900 text-gray-300 mt-10">
+        <p>&copy; Created by Sudipto Sen, Roll: Mars-06</p>
+    </footer>
+</body>
+</html>
