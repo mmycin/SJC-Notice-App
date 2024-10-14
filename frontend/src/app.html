@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%sveltekit.assets%/icon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="SJC Notice App - Stay updated with the latest notices from SJC." />
     <meta name="author" content="Sudipto Sen" />
@@ -11,16 +12,24 @@
     <title>SJC Notice App</title>
     %sveltekit.head%
     <style>
-        /* Add the background image styles */
         body {
-            background-image: url('/background.jpg'); /* Updated path to the image */
-            background-size: cover; /* Cover the entire viewport */
-            background-position: center; /* Center the image */
+            background-image: url('/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Ensure the background is fixed */
+            font-family: 'Poppins', sans-serif; /* Global font */
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
         }
     </style>
 </head>
 <body data-sveltekit-preload-data="hover">
-    <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Overlay div -->
+    <!-- Background overlay -->
+    <div class="absolute inset-0 overlay"></div>
+    
+    <!-- Main container with relative positioning -->
     <div class="relative z-10 max-w-3xl mx-auto p-6 bg-gray-800 bg-opacity-80 rounded-lg shadow-md mt-10">
         <div style="display: contents">%sveltekit.body%</div>
     </div>
