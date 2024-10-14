@@ -1,77 +1,113 @@
-<script>
-    // @ts-nocheck
-    // @ts-ignore
-    import axios from 'axios';
+<!-- Page Content -->
+<section class="text-center bg-gray-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4">
+        <h1 class="text-4xl font-bold mb-6">
+            Welcome to Saint Joseph Higher Secondary School
+        </h1>
+        <p class="text-lg mb-8">
+            Stay updated with the latest notices and information from our
+            school.
+        </p>
+        <a
+            href="/notices"
+            class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-8 rounded-full transition duration-300"
+            >View Notices</a
+        >
+    </div>
 
-    let notices = [];
-
-    (async function () {
-        const response = await axios.get("http://localhost:8080/api/notices");
-        notices = response.data;
-        console.log(notices);
-    })()
-</script>
-
-<div class="max-w-3xl mx-auto p-4 sm:p-6 bg-gray-900 rounded-lg shadow-md mt-10 animate-fadeIn">
-    <h1 class="text-4xl sm:text-5xl font-extrabold text-center text-white mb-8 tracking-wide animate-pulse font-poppins">Josephites Notice Board</h1>
-    
-    {#if notices.length > 0}
-        <div class="space-y-6 sm:space-y-8">
-            {#each notices as notice}
-            <div class="relative p-4 sm:p-6 bg-gray-800 bg-opacity-60 backdrop-blur-lg border border-gray-600 rounded-lg transition-transform transform hover:scale-105 hover:rotate-3 duration-500 ease-in-out hover:shadow-2xl hover:border-blue-400"
-                style="perspective: 1000px; transform-style: preserve-3d;">
-                <div class="p-2 rounded-md transition-transform transform hover:rotate-x-6 hover:rotate-y-6 duration-300 ease-out">
-                    <h3 class="text-lg sm:text-xl font-semibold text-blue-300 transition-colors duration-300 ease-in-out hover:text-blue-400 font-poppins">
-                        {notice.title}
-                    </h3>
-                    <p class="text-xs sm:text-sm text-gray-400 mb-2">{notice.date}</p>
-                    <p class="mt-2 text-gray-200 text-sm sm:text-base">{notice.content}</p>
-                </div>
-                <!-- Adding light highlight effect -->
-                <div class="absolute inset-0 rounded-lg bg-gradient-to-br from-transparent to-white opacity-5 pointer-events-none"></div>
+    <!-- Carousel Section -->
+    <div class="mt-12 mx-auto mb-16 w-full max-w-6xl"> <!-- Increased max-width for larger screens -->
+        <div class="relative">
+            <!-- Carousel Images -->
+            <div class="overflow-hidden rounded-lg shadow-lg border border-gray-700 w-full">
+                {#each images as image, index}
+                    <!-- svelte-ignore a11y-img-redundant-alt -->
+                    <img
+                        src={`/slider/${image}`}
+                        alt="Carousel Image"
+                        class="w-full h-[400px] sm:h-[500px] md:h-[600px] object-cover absolute top-0 left-0 transition-opacity duration-500 ease-in-out" 
+                        style="opacity: {index === currentIndex ? 1 : 0}; z-index: {index === currentIndex ? 1 : 0};"
+                    />
+                {/each}
             </div>
+            <!-- Navigation Buttons -->
+            <button
+                class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 bg-opacity-70 text-white px-4 py-2 rounded-full hover:bg-opacity-100 transition-all duration-300"
+                on:click={prevImage}
+            >
+                &#10094; <!-- Left Arrow -->
+            </button>
+            <button
+                class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 bg-opacity-70 text-white px-4 py-2 rounded-full hover:bg-opacity-100 transition-all duration-300"
+                on:click={nextImage}
+            >
+                &#10095; <!-- Right Arrow -->
+            </button>
+        </div>
+        <!-- Dots Indicator -->
+        <div class="flex justify-center mt-4">
+            {#each images as _, index}
+                <button
+                    class="w-3 h-3 rounded-full mx-1 bg-gray-600 hover:bg-blue-500 transition-all duration-300"
+                    class:bg-blue-500={index === currentIndex}
+                    on:click={() => goToImage(index)}
+                ></button>
             {/each}
         </div>
-    {:else}
-        <p class="text-center text-gray-400">There is no data available</p>
-    {/if}
-</div>
+    </div>
+</section>
+
+<script>
+    import { onMount } from 'svelte';
+
+    let currentIndex = 0;
+
+    // Array of image filenames (make sure these match the names in your /slider directory)
+    const images = [
+        '1.jpg',
+        '2.jpg',
+        '3.jpg', // Add your actual image names
+    ];
+
+    // Function to go to the previous image
+    const prevImage = () => {
+        currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+    };
+
+    // Function to go to the next image
+    const nextImage = () => {
+        currentIndex = (currentIndex + 1) % images.length;
+    };
+
+    // Function to go to a specific image
+    const goToImage = (index) => {
+        currentIndex = index;
+    };
+
+    // Auto-advance the carousel
+    onMount(() => {
+        const interval = setInterval(nextImage, 5000); // Change image every 5 seconds
+
+        return () => clearInterval(interval); // Clean up on component unmount
+    });
+</script>
 
 <style>
-    /* Custom animations */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    /* Additional styles for the carousel */
+    section {
+        background-color: #1a202c; /* Dark background */
     }
 
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.05);
-        }
-        100% {
-            transform: scale(1);
-        }
+    .carousel-button {
+        transition: background-color 0.3s ease;
     }
 
-    .animate-fadeIn {
-        animation: fadeIn 0.8s ease-in-out forwards;
+    .carousel-button:hover {
+        background-color: rgba(255, 255, 255, 0.2); /* Lighten on hover */
     }
 
-    .animate-pulse {
-        animation: pulse 1.5s infinite ease-in-out;
-    }
-
-    /* Google Fonts */
-    .font-poppins {
-        font-family: 'Poppins', sans-serif;
+    /* Ensures the buttons and dots are styled nicely */
+    button {
+        cursor: pointer;
     }
 </style>

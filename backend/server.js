@@ -19,6 +19,12 @@ app.get('/api/notices', async (req, res) => {
     res.json(notices);
 });
 
+app.get("/api/events", async (req, res) => {
+    const events = await prisma.event.findMany();
+    events.reverse();
+    res.json(events);
+});
+
 async function main() {
     await app.listen(port, () => {
         console.log(`Server is running on http://localhost:${port}`);

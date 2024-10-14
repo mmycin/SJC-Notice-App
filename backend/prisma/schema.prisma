@@ -19,3 +19,10 @@ model Notice {
   date      String
   content   String
 }
+
+model Event {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  imageUrl  String
+  title     String
+  date      String
+}

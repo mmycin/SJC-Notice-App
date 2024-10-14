@@ -9,19 +9,50 @@
     <meta name="author" content="Sudipto Sen" />
     <meta name="keywords" content="Notices, SJC, College, Updates" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>SJC Notice App</title>
+    <title>Saint Joseph Higher Secondary School</title>
     %sveltekit.head%
     <style>
+        /* Apply global box-sizing to prevent weird box behavior */
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             background-image: url('/background.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Ensure the background is fixed */
-            font-family: 'Poppins', sans-serif; /* Global font */
+            background-attachment: fixed;
+            font-family: 'Poppins', sans-serif;
+            margin: 0; /* Remove default margin */
         }
 
         .overlay {
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for better text visibility */
+        }
+
+        /* Adjust main container styling */
+        .container {
+            max-width: 100%; /* Ensure the container takes up full width */
+            padding: 20px; /* Add some padding for better layout */
+        }
+
+        /* For mobile responsiveness */
+        @media (min-width: 640px) {
+            .container {
+                max-width: 640px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px;
+            }
         }
     </style>
 </head>
@@ -30,7 +61,7 @@
     <div class="absolute inset-0 overlay"></div>
     
     <!-- Main container with relative positioning -->
-    <div class="relative z-10 max-w-3xl mx-auto p-6 bg-gray-800 bg-opacity-80 rounded-lg shadow-md mt-10">
+    <div class="relative z-10 container mx-auto bg-gray-800 bg-opacity-80 rounded-lg shadow-md mt-0">
         <div style="display: contents">%sveltekit.body%</div>
     </div>
     
