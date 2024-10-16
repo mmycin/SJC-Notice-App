@@ -1,0 +1,12 @@
+{
+  "name": "saint joseph",
+  "version": "1.0.0",
+  "description": "A project with both Express backend and Svelte frontend",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "concurrently \"bun run backend/server.js\" \"bun run --cwd frontend dev\" \"cd backend && bunx prisma studio\""
+  },
+  "dependencies": {
+    "concurrently": "^9.0.1"
+  }
+}

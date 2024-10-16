@@ -1,10 +1,15 @@
 <script>
     // You can import any additional components or scripts here if needed
+    const images = [
+        { src: '/slider/4.jpg', alt: 'St. Joseph Higher Secondary School Building' },
+        { src: '/slider/5.jpg', alt: 'Students in classroom' },
+        { src: '/slider/6.jpg', alt: 'School campus' },
+        { src: '/slider/7.jpg', alt: 'School campus' },
+    ];
 </script>
 
 <style>
     .about-section {
-        background-color: #1a1a1a;
         color: #f8f9fa;
         padding: 60px 20px;
         font-family: 'Poppins', sans-serif;
@@ -93,6 +98,39 @@
         margin-bottom: 25px;
         color: #ffd700;
     }
+
+    .image-container {
+        margin: 30px auto;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+    }
+
+    .section-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .section-image:hover {
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 2.2rem;
+        }
+
+        .subsection-title {
+            font-size: 1.8rem;
+        }
+
+        .section-content {
+            font-size: 1rem;
+        }
+    }
 </style>
 
 <section class="about-section">
@@ -109,11 +147,19 @@
         </p>
     </div>
 
+    <div class="image-container animation-fade-up">
+        <img src={images[0].src} alt={images[0].alt} class="section-image" />
+    </div>
+
     <h2 class="subsection-title animation-fade">Aims and Goals</h2>
     <div class="section-content animation-fade-up subsection">
         <p>
             Our motto, <span class="highlight">"Advancing in Wisdom and Virtue,"</span> encapsulates the essence of our mission. At St. Joseph's, we strive to provide an education that goes beyond academics, fostering moral values, leadership skills, and a strong sense of social responsibility. We aim to nurture not just students, but future leaders who will contribute positively to society.
         </p>
+    </div>
+
+    <div class="image-container animation-fade-up">
+        <img src={images[1].src} alt={images[1].alt} class="section-image" />
     </div>
 
     <h2 class="subsection-title animation-fade">The Institution at a Glance</h2>
@@ -126,11 +172,19 @@
         </p>
     </div>
 
+    <div class="image-container animation-fade-up">
+        <img src={images[2].src} alt={images[2].alt} class="section-image" />
+    </div>
+
     <h2 class="subsection-title animation-fade">Buildings and Campus</h2>
     <div class="section-content animation-fade-up">
         <p>
             Nestled in a tranquil area of Dhaka City, our sprawling <span class="highlight">3.5-acre campus</span> boasts state-of-the-art facilities, including spacious classrooms, well-equipped laboratories, and extensive sports grounds. Our institution is thoughtfully designed to create an inspiring and conducive environment that fosters both academic excellence and personal development.
         </p>
+    </div>
+
+    <div class="image-container animation-fade-up">
+        <img src={images[3].src} alt={images[3].alt} class="section-image" />
     </div>
 
     <div class="text-center">
