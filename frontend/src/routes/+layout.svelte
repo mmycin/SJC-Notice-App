@@ -30,6 +30,7 @@
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="/notices" class="text-gray-300 hover:text-blue-500 transition duration-300 ease-in-out">Notice</a>
                     <a href="/about" class="text-gray-300 hover:text-blue-500 transition duration-300 ease-in-out">About</a>
+                    <a href="/clubs" class="text-gray-300 hover:text-blue-500 transition duration-300 ease-in-out">Clubs</a>
                     <a href="/events" class="text-gray-300 hover:text-blue-500 transition duration-300 ease-in-out">Events</a>
                     <a href="https://www.sjsadmission.info/" class="block px-3 py-2 text-white hover:bg-blue-500 rounded-md" target="_blank">Admission</a>
                     <a href="/faculty" class="text-gray-300 hover:text-blue-500 transition duration-300 ease-in-out">Faculty</a>
@@ -52,6 +53,7 @@
             <div class="px-2 pt-4 pb-4 space-y-1 sm:px-3">
                 <a href="/notices" class="block px-3 py-2 text-white hover:bg-blue-500 rounded-md">Notice</a>
                 <a href="/about" class="block px-3 py-2 text-white hover:bg-blue-500 rounded-md">About</a>
+                <a href="/clubs" class="block px-3 py-2 text-white hover:bg-blue-500 rounded-md">Clubs</a>
                 <a href="/events" class="block px-3 py-2 text-white hover:bg-blue-500 rounded-md">Events</a>
                 <a href="https://www.sjsadmission.info/" class="block px-3 py-2 text-white hover:bg-blue-500 rounded-md" target="_blank">Admission</a>
                 <a href="/faculty" class="block px-3 py-2 text-white hover:bg-blue-500 rounded-md">Faculty</a>

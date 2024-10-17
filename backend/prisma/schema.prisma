@@ -14,15 +14,37 @@ datasource db {
 }
 
 model Notice {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  title     String
-  date      String
-  content   String
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  title   String
+  date    String
+  content String
 }
 
 model Event {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  imageUrl  String
-  title     String
-  date      String
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  imageUrl String
+  title    String
+  date     String
+}
+
+model Club {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  image String
+  link  String
+}
+
+model Faculty {
+  id     String   @id @default(auto()) @map("_id") @db.ObjectId
+  name   String
+  members Member[]
+}
+
+model Member {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  image     String
+  position  String
+  faculty   Faculty @relation(fields: [facultyID], references: [id])
+  facultyID String  @db.ObjectId
 }

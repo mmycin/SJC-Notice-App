@@ -1,7 +1,7 @@
 <!-- Page Content -->
 <section class="text-center text-white py-16">
     <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-6">
+        <h2 class="text-3xl font-bold mb-6" id="welcome">
             Welcome to Saint Joseph Higher Secondary School
         </h2>
         
@@ -133,7 +133,6 @@
 
 <script>
     import { onMount } from 'svelte';
-
     let currentIndex = 0;
 
     // Array of image filenames (make sure these match the names in your /slider directory)
