@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import router from './routes/router.route.js';
-import { gracefulShutdown } from './controllers/api.controller.js';
+import router from './routes/router.route.ts';
+import { gracefulShutdown } from './controllers/api.controller.ts';
 
 const app = express();
 

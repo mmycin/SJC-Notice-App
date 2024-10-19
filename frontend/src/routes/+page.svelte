@@ -131,7 +131,7 @@
 
 
 
-<script>
+<script lang="js">
     import { onMount } from 'svelte';
     let currentIndex = 0;
 
