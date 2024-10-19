@@ -10,7 +10,7 @@
 <!-- Layout Wrapper -->
 <div class="layout">
     <!-- Navbar -->
-    <nav class="bg-gray-900 shadow-md fixed w-full z-20 top-0 left-0"> 
+    <nav class="bg-gray-900 shadow-md fixed w-full z-20 top-0 left-0 pt-2 pb-1"> 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo and School Name -->
@@ -63,7 +63,7 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="pt-20">
+    <main class="pt-3 md:pt-20">
         <slot></slot>
     </main>
 </div>

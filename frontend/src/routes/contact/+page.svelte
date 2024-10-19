@@ -2,6 +2,49 @@
     // You can import any additional components or scripts here if needed
 </script>
 
+<section class="contact-section py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="text-center mb-4">
+            St. Joseph Higher Secondary School<br />
+            97 Asad Avenue, Mohammadpur, Dhaka - 1207<br />
+            Email:
+            <a href="mailto:sjhss.bd@gmail.com" class="text-blue-400"
+                >sjhss.bd@gmail.com</a
+            ><br />
+            Phone: <span class="text-blue-400">02-41022469</span>
+        </p>
+
+        <form class="max-w-2xl mx-auto">
+            <div class="grid grid-cols-1 gap-6">
+                <input type="text" placeholder="Your Name" class="form-input" />
+                <input
+                    type="email"
+                    placeholder="Your Email"
+                    class="form-input"
+                />
+                <textarea placeholder="Your Message" class="form-input" rows="4"
+                ></textarea>
+                <button type="submit" class="button">Send Message</button>
+            </div>
+        </form>
+
+        <h3 class="text-xl font-bold text-center mt-12 mb-4">Location</h3>
+        <div class="map-container">
+            <!-- svelte-ignore a11y-missing-attribute -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4342.568792428211!2d90.36774443082774!3d23.759838451258886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf542648ba63%3A0xdb1b53586c75ba96!2sSaint%20Joseph%20Higher%20Secondary%20School!5e0!3m2!1sen!2sbd!4v1632312995121!5m2!1sen!2sbd"
+                width="100%"
+                height="400"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+            >
+            </iframe>
+        </div>
+    </div>
+</section>
+
 <style>
     .contact-section {
         background-color: #1a1a1a;
@@ -62,36 +105,3 @@
         }
     }
 </style>
-
-<section class="contact-section py-12">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="section-title">Contact Us</h2>
-        <p class="text-center mb-4">
-            St. Joseph Higher Secondary School<br>
-            97 Asad Avenue, Mohammadpur, Dhaka - 1207<br>
-            Email: <a href="mailto:sjhss.bd@gmail.com" class="text-blue-400">sjhss.bd@gmail.com</a><br>
-            Phone: <span class="text-blue-400">02-41022469</span>
-        </p>
-
-        <form class="max-w-2xl mx-auto">
-            <div class="grid grid-cols-1 gap-6">
-                <input type="text" placeholder="Your Name" class="form-input">
-                <input type="email" placeholder="Your Email" class="form-input">
-                <textarea placeholder="Your Message" class="form-input" rows="4"></textarea>
-                <button type="submit" class="button">Send Message</button>
-            </div>
-        </form>
-
-        <h3 class="text-xl font-bold text-center mt-12 mb-4">Directions</h3>
-        <div class="map-container">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.9256764100966!2d90.35877531538684!3d23.764655784585014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c76445e72e9d%3A0x2af0d96cddc60199!2sSt.%20Joseph%20Higher%20Secondary%20School!5e0!3m2!1sen!2sbd!4v1631809011550!5m2!1sen!2sbd"
-                width="100%"
-                height="400"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy">
-            </iframe>
-        </div>
-    </div>
-</section>

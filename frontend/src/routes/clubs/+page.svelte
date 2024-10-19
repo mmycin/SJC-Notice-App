@@ -4,7 +4,7 @@
     let clubs = [];
 
     (async function () {
-        const response = await axios.get('http://localhost:8000/api/clubs/');
+        const response = await axios.get('http://localhost:8080/api/clubs/');
         clubs = response.data;
     })();
 </script>
