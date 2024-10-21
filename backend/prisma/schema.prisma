@@ -13,11 +13,43 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Category {
+  School
+  XI
+  XII
+  Special
+}
+
+enum Group {
+  General
+  Science
+  Commerce
+  Humanities
+  Sports
+  Library
+  Guidance
+  Admin
+}
+
+enum Positions {
+  Lecturer
+  AssistantProfessor
+  Teacher
+  AssistantTeacher
+  Principal
+  AssociateProfessor
+  VicePrincipal
+  Demonstrator
+  Councellor
+  Librarian
+}
+
 model Notice {
-  id      String @id @default(auto()) @map("_id") @db.ObjectId
-  title   String
-  date    String
-  content String
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  title    String
+  date     String
+  content  String
+  category Category @default(Special)
 }
 
 model Event {
@@ -35,16 +67,17 @@ model Club {
 }
 
 model Faculty {
-  id     String   @id @default(auto()) @map("_id") @db.ObjectId
-  name   String
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  group   Group    @default(General)
   members Member[]
 }
 
 model Member {
-  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
   name      String
   image     String
-  position  String
-  faculty   Faculty @relation(fields: [facultyID], references: [id])
-  facultyID String  @db.ObjectId
+  position  Positions? @default(Lecturer)
+  faculty   Faculty    @relation(fields: [facultyID], references: [id])
+  facultyID String     @db.ObjectId
 }

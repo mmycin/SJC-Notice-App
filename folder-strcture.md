@@ -1,0 +1,50 @@
+```
+└── 📁Saint Joseph Notice App
+    └── 📁backend
+        └── 📁controllers
+            └── api.controller.ts
+        └── 📁prisma
+            └── schema.prisma
+        └── 📁routes
+            └── router.route.ts
+        └── .env
+        └── .gitignore
+        └── app.ts
+        └── bun.lockb
+        └── clubdata.json
+        └── jsconfig.json
+        └── package.json
+        └── README.md
+    └── 📁frontend
+        
+        └── 📁src
+            └── 📁lib
+                └── 📁components
+                    └── Home.svelte
+                └── index.js
+            └── 📁routes
+                └── 📁about
+                    └── +page.svelte
+                └── 📁clubs
+                    └── +page.svelte
+                └── 📁contact
+                    └── +page.svelte
+                └── 📁events
+                    └── +page.svelte
+                └── 📁faculty
+                    └── 📁[name]
+                        └── +page.svelte
+                    └── +page.svelte
+                └── 📁notices
+                    └── +page.svelte
+                └── +layout.svelte
+                └── +page.svelte
+                └── clubinfo.json
+            └── app.html
+        └── 📁static
+    └── .gitignore
+    └── bun.lockb
+    └── package.json
+    └── README.md
+    └── tsconfig.json
+```

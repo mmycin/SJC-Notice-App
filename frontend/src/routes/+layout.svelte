@@ -10,9 +10,9 @@
 <!-- Layout Wrapper -->
 <div class="layout">
     <!-- Navbar -->
-    <nav class="bg-gray-900 shadow-md fixed w-full z-20 top-0 left-0 pt-2 pb-1"> 
+    <nav class="bg-gray-900 shadow-lg fixed w-full z-20 top-0 left-0 mb-5 py-4"> 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex justify-between items-center h-full">
                 <!-- Logo and School Name -->
                 <div class="flex items-center space-x-3">
                     <a
@@ -20,7 +20,7 @@
                         class="flex items-center text-4xl font-bold text-white hover:text-blue-500 transition-all duration-300 ease-in-out"
                     >
                         <img src="/icon.png" alt="School Logo" class="w-16 h-16 object-cover mr-2" />
-                        <span class="font-serif text-2xl font-bold">
+                        <span class="font-serif text-2xl font-bold font-roboto">
                             Saint Joseph<br />Higher Secondary School
                         </span>
                     </a>
@@ -32,7 +32,7 @@
                     <a href="/about" class="text-gray-300 hover:text-blue-500 transition duration-300 ease-in-out">About</a>
                     <a href="/clubs" class="text-gray-300 hover:text-blue-500 transition duration-300 ease-in-out">Clubs</a>
                     <a href="/events" class="text-gray-300 hover:text-blue-500 transition duration-300 ease-in-out">Events</a>
-                    <a href="https://www.sjsadmission.info/" class="block px-3 py-2 text-white hover:bg-blue-500 rounded-md" target="_blank">Admission</a>
+                    <a href="https://www.sjsadmission.info/" class="block px-4 py-2 text-white bg-blue-500 hover:bg-blue-600 rounded-md transition duration-300" target="_blank">Admission</a>
                     <a href="/faculty" class="text-gray-300 hover:text-blue-500 transition duration-300 ease-in-out">Faculty</a>
                     <a href="/contact" class="text-gray-300 hover:text-blue-500 transition duration-300 ease-in-out">Contact</a>
                 </div>
@@ -50,7 +50,7 @@
 
         <!-- Mobile Menu -->
         <div class={`md:hidden ${isOpen ? "block" : "hidden"} pt-3 pb-3 transition-all duration-300 bg-gray-800`}>
-            <div class="px-2 pt-4 pb-4 space-y-1 sm:px-3">
+            <div class="px-4 pt-4 pb-4 space-y-1">
                 <a href="/notices" class="block px-3 py-2 text-white hover:bg-blue-500 rounded-md">Notice</a>
                 <a href="/about" class="block px-3 py-2 text-white hover:bg-blue-500 rounded-md">About</a>
                 <a href="/clubs" class="block px-3 py-2 text-white hover:bg-blue-500 rounded-md">Clubs</a>
@@ -63,7 +63,7 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="pt-3 md:pt-20">
+    <main class="pt-20 md:pt-24">
         <slot></slot>
     </main>
 </div>
@@ -74,8 +74,13 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+        margin-top: 4rem; /* Adjusted to account for navbar height */
     }
     main {
         flex: 1;
+        padding: 20px; /* Add padding for main content */
+    }
+    .font-roboto {
+        font-family: 'Roboto', sans-serif;
     }
 </style>

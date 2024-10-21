@@ -1,41 +1,58 @@
-<script>
-    // @ts-nocheck
-    // @ts-ignore
-    import axios from 'axios';
+<div class="bg-gray-900 min-h-screen py-10">
+  <div class="container mx-auto">
+    <!-- Heading -->
+      <h1
+        class="text-4xl sm:text-5xl font-extrabold text-center text-white mb-12 tracking-wide animate-pulse font-poppins"
+    >
+        Josephite Notice Board
+    </h1>
 
-    let notices = [];
-
-    (async function () {
-        const response = await axios.get("http://localhost:8080/api/notices");
-        notices = response.data;
-        console.log(notices);
-    })()
-</script>
-
-<div class="max-w-3xl mx-auto p-4 sm:p-6 bg-gray-900 rounded-lg shadow-md mt-10 animate-fadeIn">
-    <h1 class="text-4xl sm:text-5xl font-extrabold text-center text-white mb-8 tracking-wide animate-pulse font-poppins">Josephites Notice Board</h1>
     
-    {#if notices.length > 0}
-        <div class="space-y-6 sm:space-y-8">
-            {#each notices as notice}
-            <div class="relative p-4 sm:p-6 bg-gray-800 bg-opacity-60 backdrop-blur-lg border border-gray-600 rounded-lg transition-transform transform hover:scale-105 hover:rotate-3 duration-500 ease-in-out hover:shadow-2xl hover:border-blue-400"
-                style="perspective: 1000px; transform-style: preserve-3d;">
-                <div class="p-2 rounded-md transition-transform transform hover:rotate-x-6 hover:rotate-y-6 duration-300 ease-out">
-                    <h3 class="text-lg sm:text-xl font-semibold text-blue-300 transition-colors duration-300 ease-in-out hover:text-blue-400 font-poppins">
-                        {notice.title}
-                    </h3>
-                    <p class="text-xs sm:text-sm text-gray-400 mb-2">{notice.date}</p>
-                    <p class="mt-2 text-gray-200 text-sm sm:text-base">{notice.content}</p>
-                </div>
-                <!-- Adding light highlight effect -->
-                <div class="absolute inset-0 rounded-lg bg-gradient-to-br from-transparent to-white opacity-5 pointer-events-none"></div>
-            </div>
-            {/each}
+    <!-- Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Notice 1 -->
+      <a href="/notices/school" class="transform hover:scale-105 transition-transform duration-300">
+        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+          <img src="/notice/school.jpg" alt="School Notice" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h2 class="text-xl font-semibold text-white mb-2">School Notices</h2>
+          </div>
         </div>
-    {:else}
-        <p class="text-center text-gray-400">There is no data available</p>
-    {/if}
+      </a>
+      
+      <!-- Notice 2 -->
+      <a href="/notices/special" class="transform hover:scale-105 transition-transform duration-300">
+        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+          <img src="/notice/special.jpg" alt="Special Notice" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h2 class="text-xl font-semibold text-white mb-2">Special Notices</h2>
+          </div>
+        </div>
+      </a>
+      
+      <!-- Notice 3 -->
+      <a href="/notices/xi" class="transform hover:scale-105 transition-transform duration-300">
+        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+          <img src="/notice/xi.jpg" alt="Class XI Notice" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h2 class="text-xl font-semibold text-white mb-2">Class XI Notices</h2>
+          </div>
+        </div>
+      </a>
+      
+      <!-- Notice 4 -->
+      <a href="/notices/xii" class="transform hover:scale-105 transition-transform duration-300">
+        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+          <img src="/notice/xii.jpg" alt="Class XII Notice" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h2 class="text-xl font-semibold text-white mb-2">Class XII Notices</h2>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
 </div>
+
 
 <style>
     /* Custom animations */
@@ -62,16 +79,12 @@
         }
     }
 
-    .animate-fadeIn {
-        animation: fadeIn 0.8s ease-in-out forwards;
-    }
-
     .animate-pulse {
         animation: pulse 1.5s infinite ease-in-out;
     }
 
     /* Google Fonts */
     .font-poppins {
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
     }
 </style>
