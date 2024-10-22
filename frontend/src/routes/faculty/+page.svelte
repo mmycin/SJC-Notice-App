@@ -32,14 +32,14 @@
         {#each Object.keys(groupedFaculties) as group}
             <section class="mb-6">
                 <h2 class="text-2xl font-semibold mb-6 mt-4">{group}</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {#each groupedFaculties[group] as faculty}
-                        <div class="bg-gray-800 rounded-lg shadow-lg p-4 text-center hover:shadow-xl transition-shadow duration-200">
-                            <a href={`/faculty/${faculty.name}`} class="text-xl font-semibold text-blue-400 hover:text-blue-300">
+                        <a href={`/faculty/${faculty.name}`} class="block bg-gray-800 rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out">
+                            <h3 class="text-2xl font-bold text-blue-400 hover:text-blue-300 mb-2">
                                 {faculty.name}
-                            </a>
-                            <p class="text-sm text-gray-500">{faculty.group}</p>
-                        </div>
+                            </h3>
+                            <p class="text-sm text-gray-500 mb-4">Members: {faculty.members.length}</p>
+                        </a>
                     {/each}
                 </div>
             </section>
@@ -48,3 +48,21 @@
         <p class="text-gray-400 text-center">No data available</p>
     {/if}
 </div>
+
+<style>
+    .hover\:shadow-2xl:hover {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .transform {
+        transition: transform 0.3s ease;
+    }
+
+    .hover\:translate-y-2:hover {
+        transform: translateY(-0.5rem);
+    }
+
+    a:hover h3 {
+        color: #60A5FA; /* Light blue on hover */
+    }
+</style>

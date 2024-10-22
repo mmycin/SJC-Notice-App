@@ -51,7 +51,7 @@ const getClubs = async (req: Request, res: Response): Promise<void> => {
 const getFaculties = async (req: Request, res: Response): Promise<void> => {
     try {
         const faculties = await prisma.faculty.findMany({
-            select: { name: true, group: true },
+            select: { name: true, group: true, members: true } 
         });
         res.json(faculties);
     } catch (error) {
