@@ -1,13 +1,32 @@
 <script>
+    import axios from "axios";
     import { onMount } from "svelte";
     import Typed from "typed.js";
 
     let currentIndex = 0;
     const images = ["1.jpg", "2.jpg", "3.jpg"];
-
     let typedInstance;
+    let teacherCount = 0;
 
-    onMount(() => {
+    async function fetchTeacherCount() {
+        try {
+            const response = await axios.get(
+                "http://localhost:8080/api/faculties",
+            );
+            // Calculate total teachers by reducing over all departments and their members
+            teacherCount = response.data.reduce((total, department) => {
+                console.log(total, department);
+
+                return total + department.members.length;
+            }, 0);
+        } catch (error) {
+            console.error("Error fetching teacher count:", error);
+            teacherCount = 0;
+        }
+    }
+
+    onMount(async () => {
+        await fetchTeacherCount();
         typedInstance = new Typed("#typed-text", {
             strings: [
                 "Welcome to Saint Joseph Higher Secondary School",
@@ -237,12 +256,14 @@
             </h1>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <!-- Card 1 -->
+                <!-- Card 1 - Dynamic Teacher Count -->
                 <div
                     class="bg-gray-800 p-4 rounded-lg shadow-md animate-fade-in-up"
                     style="animation-delay: 0.2s;"
                 >
-                    <h2 class="text-2xl font-semibold mb-2">79</h2>
+                    <h2 class="text-2xl font-semibold mb-2">
+                        {teacherCount || "..."}
+                    </h2>
                     <p>Teachers</p>
                 </div>
 
@@ -331,7 +352,8 @@
         </div>
     </div>
 </section>
-<hr>
+<hr />
+
 <style>
     section {
         background-color: transparent;
