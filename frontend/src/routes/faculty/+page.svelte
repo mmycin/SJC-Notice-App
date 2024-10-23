@@ -8,7 +8,6 @@
     (async function () {
         const response = await axios.get("http://localhost:8080/api/faculties");
         faculties = response.data;
-        console.log(faculties);
     })();
 
     // Helper function to group faculties by their group

@@ -4,7 +4,6 @@
     import axios from "axios";
 
     let faculty = [];
-    console.log($page.params.name);
 
     onMount(async () => {
         try {
@@ -12,7 +11,6 @@
                 `http://localhost:8080/api/faculty/${$page.params.name}/members`,
             );
             faculty = response.data;
-            console.log(faculty);
         } catch (error) {
             console.error("Error fetching faculty data:", error);
         }

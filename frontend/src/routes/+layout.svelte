@@ -19,7 +19,7 @@
                         href="/"
                         class="flex items-center text-4xl font-bold text-white hover:text-blue-500 transition-all duration-300 ease-in-out"
                     >
-                        <img src="/icon.png" alt="School Logo" class="w-16 h-16 object-cover mr-2" />
+                        <img src="/logo.jpg" alt="School Logo" class="w-16 h-16 object-cover mr-2 rounded-full" />
                         <span class="font-serif text-2xl font-bold font-roboto">
                             Saint Joseph<br />Higher Secondary School
                         </span>

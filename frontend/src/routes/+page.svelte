@@ -8,6 +8,8 @@
     let typedInstance;
     let teacherCount = 0;
 
+    const yearsSinceEstablishment = new Date().getFullYear() - 1954;
+
     async function fetchTeacherCount() {
         try {
             const response = await axios.get(
@@ -15,8 +17,6 @@
             );
             // Calculate total teachers by reducing over all departments and their members
             teacherCount = response.data.reduce((total, department) => {
-                console.log(total, department);
-
                 return total + department.members.length;
             }, 0);
         } catch (error) {
@@ -266,13 +266,13 @@
                     </h2>
                     <p>Teachers</p>
                 </div>
-
-                <!-- Card 2 -->
                 <div
                     class="bg-gray-800 p-4 rounded-lg shadow-md animate-fade-in-up"
                     style="animation-delay: 0.4s;"
                 >
-                    <h2 class="text-2xl font-semibold mb-2">70</h2>
+                    <h2 class="text-2xl font-semibold mb-2">
+                        {yearsSinceEstablishment}
+                    </h2>
                     <p>Years</p>
                 </div>
 

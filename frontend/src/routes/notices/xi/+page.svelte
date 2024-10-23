@@ -8,7 +8,6 @@
     (async function () {
         const response = await axios.get("http://localhost:8080/api/notices");
         notices = response.data;
-        console.log(notices);
     })();
 </script>
 
