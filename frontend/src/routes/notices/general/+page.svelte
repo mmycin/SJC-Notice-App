@@ -17,7 +17,7 @@
     <h1
         class="text-4xl sm:text-5xl font-extrabold text-center text-white mb-8 tracking-wide animate-pulse font-poppins"
     >
-        Special Notices
+        General Notices for All
     </h1>
 
     {#if notices.length > 0}
@@ -43,7 +43,7 @@
                 Go Back
             </button>
             {#each notices as notice}
-                {#if notice.category === "Special"}
+                {#if notice.category === "General"}
                     <div
                         class="relative p-4 sm:p-6 bg-gray-800 bg-opacity-60 backdrop-blur-lg border border-gray-600 rounded-lg transition-transform transform hover:scale-105 hover:rotate-3 duration-500 ease-in-out hover:shadow-2xl hover:border-blue-400"
                         style="perspective: 1000px; transform-style: preserve-3d;"

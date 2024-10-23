@@ -10,6 +10,14 @@
     
     <!-- Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <a href="/notices/general" class="transform hover:scale-105 transition-transform duration-300">
+        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+          <img src="/notice/general.jpg" alt="Special Notice" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h2 class="text-xl font-semibold text-white mb-2">General Notices</h2>
+          </div>
+        </div>
+      </a>
       <!-- Notice 1 -->
       <a href="/notices/school" class="transform hover:scale-105 transition-transform duration-300">
         <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
@@ -21,14 +29,6 @@
       </a>
       
       <!-- Notice 2 -->
-      <a href="/notices/special" class="transform hover:scale-105 transition-transform duration-300">
-        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-          <img src="/notice/special.jpg" alt="Special Notice" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <h2 class="text-xl font-semibold text-white mb-2">Special Notices</h2>
-          </div>
-        </div>
-      </a>
       
       <!-- Notice 3 -->
       <a href="/notices/xi" class="transform hover:scale-105 transition-transform duration-300">

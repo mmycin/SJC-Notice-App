@@ -4,7 +4,11 @@
     import Typed from "typed.js";
 
     let currentIndex = 0;
-    const images = ["1.jpg", "2.jpg", "3.jpg"];
+    let images = [];
+    const iter = 3;
+    for(let i = 1; i <= iter; i++) {
+        images.push(`/${i}.jpg`);
+    }
     let typedInstance;
     let teacherCount = 0;
 
