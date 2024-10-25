@@ -13,6 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// DB Structure for Notice Board
 enum Category {
   School
   XI
@@ -20,6 +21,31 @@ enum Category {
   General
 }
 
+model Notice {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  title    String
+  date     String
+  content  String
+  category Category @default(General)
+}
+
+// DB Structure for Events
+model Event {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  imageUrl String
+  title    String
+  date     String
+}
+
+// DB Structure for Clubs
+model Club {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  image String
+  link  String
+}
+
+// DB Structure for Faculty
 enum Group {
   General
   Science
@@ -31,6 +57,14 @@ enum Group {
   Admin
 }
 
+model Faculty {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  group   Group    @default(General)
+  members Member[]
+}
+
+// DB Structure for Members
 enum Positions {
   Lecturer
   AssistantProfessor
@@ -44,35 +78,6 @@ enum Positions {
   Librarian
 }
 
-model Notice {
-  id       String   @id @default(auto()) @map("_id") @db.ObjectId
-  title    String
-  date     String
-  content  String
-  category Category @default(General)
-}
-
-model Event {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  imageUrl String
-  title    String
-  date     String
-}
-
-model Club {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  name  String
-  image String
-  link  String
-}
-
-model Faculty {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  name    String
-  group   Group    @default(General)
-  members Member[]
-}
-
 model Member {
   id        String     @id @default(auto()) @map("_id") @db.ObjectId
   name      String
@@ -80,4 +85,19 @@ model Member {
   position  Positions? @default(Lecturer)
   faculty   Faculty    @relation(fields: [facultyID], references: [id])
   facultyID String     @db.ObjectId
+}
+
+// DB Structure for Contact
+enum Type {
+  Info
+  Report
+  Comment
+}
+
+model Contact {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  email   String
+  type    Type   @default(Comment)
+  message String
 }

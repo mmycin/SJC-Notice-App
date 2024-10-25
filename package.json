@@ -4,9 +4,11 @@
   "description": "A project with both Express backend and Svelte frontend",
   "main": "backend/server.js",
   "scripts": {
-    "start": "concurrently \"bun run backend/app.ts\" \"bun run --cwd frontend dev\" \"cd backend && bunx prisma studio\""
+    "start": "concurrently \"bun run --hot backend/app.ts\" \"bun run --cwd frontend dev\" \"cd backend && bunx prisma studio\""
   },
   "dependencies": {
-    "concurrently": "^9.0.1"
+    "bad-words": "^4.0.0",
+    "concurrently": "^9.0.1",
+    "react-toastify": "^10.0.6"
   }
 }

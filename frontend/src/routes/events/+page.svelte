@@ -9,6 +9,8 @@
         try {
             const response = await axios.get("http://localhost:8080/api/events");
             events = response.data;
+            console.log("Events:", events);
+            
         } catch (error) {
             console.error("Failed to fetch events:", error);
         } finally {
